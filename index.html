@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toyota Supra</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col position-relative vw-100 vh-100 overflow-hidden">
+                <video src="assets/Toyota Supra - Cinematic - Destined Films (720p, h264).mp4"
+                    class="position-absolute ratio ratio-16x9" muted autoplay loop></video>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar sticky-top position-fixed top-0 w-100 bg-body-tertiary bg-opacity-10"
+        style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1030;">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand display-4 fw-bold mx-3 text-white"
+                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Toyota
+                Supra</a>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 m-0">
+        <div class="row">
+            <div class="col-12">
+                <div class="card w-100 border-0">
+                    <img src="assets/supra logo.jpg" alt="supra logo" class="w-100"
+                        style="height: 400px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-2">
+            <div class="col-12">
+                <div class="display-4 text-center fw-bold">Supra Generations</div>
+            </div>
+        </div>
+        <div class="row" id="gallery"></div>
+
+        <div class="row mt-4 mb-2">
+            <div class="col-12">
+                <div class="display-4 text-center fw-bold">Special Editions</div>
+            </div>
+        </div>
+        <div class="row" id="specialEdition"></div>
+    </div>
+
+    <script>
+        const supraDetails = {
+            "generations": [
+                {
+                    "id": 1,
+                    "name": "First Generation — A40 / A50",
+                    "years": "1978 - 1981",
+                    "image": "https://images.classic.com/vehicles/c25ab87910c5954c29d066599957c0288ff47bf9.jpg?auto=format&fit=crop&ar=16:9",
+                    "description": "The first Supra started as a luxury version of the Toyota Celica, called the Celica Supra or Celica XX. It featured a longer body and an inline-6 engine, with the A40 using a 2.0L engine and the A50 using a stronger 2.6L. This generation focused more on comfort than performance."
+                },
+                {
+                    "id": 2,
+                    "name": "Second Generation — A60",
+                    "years": "1981 - 1986",
+                    "image": "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2020/05/Second-Generation-A60-1982-1986.jpg",
+                    "description": "Still based on the Celica platform, the A60 Supra became sportier, offering two trims: the L-type (luxury) and P-type (performance). Many models came with a 2.8L inline-6, giving the car stronger acceleration and more athletic handling than the previous generation."
+                },
+                {
+                    "id": 3,
+                    "name": "Third Generation — A70",
+                    "years": "1986 - 1993",
+                    "image": "https://i.ytimg.com/vi/XzC-JDpSalQ/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFIgWyhlMA8=&rs=AOn4CLBlquXHL0TX609dCn5dgRwYDXjT0A",
+                    "description": "The A70 was the first Supra that became its own standalone model, no longer tied to the Celica. It introduced turbocharged options, more advanced technology, and pop-up headlights, marking a major shift toward a true performance sports car."
+                },
+                {
+                    "id": 4,
+                    "name": "Fourth Generation — A80",
+                    "years": "1993 - 2002",
+                    "image": "https://live.staticflickr.com/65535/50440773533_18350ac2f8_b.jpg",
+                    "description": "The most iconic Supra, the A80, featured the legendary 2JZ inline-6 engine, available in both naturally aspirated and twin-turbo versions. This generation is famous for its massive tuning potential, sleek design, and strong performance, making it a legend in both car culture and motorsports."
+                },
+                {
+                    "id": 5,
+                    "name": "Fifth Generation — A90 / GR Supra",
+                    "years": "2019 - present",
+                    "image": "https://images.classic.com/vehicles/334945d8aea571f60218de248a767a5707e9e64d.jpg?auto=format&fit=crop&ar=16:9",
+                    "description": "After a long pause, Toyota revived the Supra in collaboration with BMW, sharing a platform with the BMW Z4. The A90 offers 2.0L turbo 4-cyl and 3.0L turbo inline-6 options and introduced a manual transmission in 2022. It blends modern tech with classic Supra performance."
+                }
+            ],
+            "specialEditions": [
+                {
+                    "id": 1,
+                    "name": "A91 Edition",
+                    "image": "https://www.hdcarwallpapers.com/download/2021_toyota_gr_supra_a91_edition_4k-3840x2160.jpg",
+                    "description": "A limited run with special styling, unique colors, and upgraded performance features, giving the GR Supra a more premium look."
+                },
+                {
+                    "id": 2,
+                    "name": "A91-CF Edition (Carbon Fiber Edition)",
+                    "image": "https://bringatrailer.com/wp-content/uploads/2023/01/2022_toyota_supra-carbon-fiber-edition_2022_toyota_supra-carbon-fiber-edition_0e38c676-f19d-410d-a16d-d24b6d234b4e-97pcvd-32256-17279.jpg?fit=940%2C626",
+                    "description": "Features an aggressive carbon fiber body kit, exclusive wheels, and performance-inspired aesthetics. Very limited in production."
+                },
+                {
+                    "id": 3,
+                    "name": "A91-MT Edition",
+                    "image": "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2023/10/toyota-supra-a91-mt-edition.JPG",
+                    "description": "Focused on driving engagement, this edition features the 6-speed manual transmission, unique interior touches, and performance tweaks."
+                },
+                {
+                    "id": 4,
+                    "name": "45th Anniversary Edition (2024)",
+                    "image": "https://cdn.hiconsumption.com/wp-content/uploads/2023/06/2024-Toyota-GR-Supra-45th-Anniversary-Edition-0-Hero.jpg",
+                    "description": "Celebrates 45 years of the Supra with exclusive paint, retro-inspired styling, and limited production numbers."
+                }
+            ]
+        }
+
+        const gallery = document.getElementById("gallery");
+        const specialEdition = document.getElementById("specialEdition");
+
+        supraDetails.generations.forEach(gen => {
+            gallery.innerHTML += `
+            <div class="col-12 col-md-6 col-xl-4 g-3 my-2">
+                <div class="card h-100">
+                    <img src="${gen.image}" alt="${gen.name}" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body px-2 mx-2">
+                        <div class="card-title fw-bold text-center">${gen.name}</div>
+                        <div class="card-text text-muted text-center py-2">${gen.years}</div>
+                        <p class="card-text text-center">${gen.description}</p>
+                    </div>
+                </div>
+            </div> `;
+        });
+
+        supraDetails.specialEditions.forEach(edition => {
+            specialEdition.innerHTML += `
+            <div class="col-12 col-md-6 col-xl-4 g-3 my-2">
+                <div class="card h-100">
+                    <img src="${edition.image}" alt="${edition.name}" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body px-2 mx-2">
+                        <div class="card-title fw-bold text-center">${edition.name}</div>
+                        <p class="card-text text-center">${edition.description}</p>
+                    </div>
+                </div>
+            </div> `;
+        });
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
