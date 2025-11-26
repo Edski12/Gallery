@@ -7,6 +7,21 @@
     <title>Toyota Supra</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-text {
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,22 +37,43 @@
     <nav class="navbar sticky-top position-fixed top-0 w-100 bg-body-tertiary bg-opacity-10"
         style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1030;">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand display-4 fw-bold mx-3 text-white"
-                style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Toyota
-                Supra</a>
+            <a href="#" class="navbar-brand display-4 fw-bold mx-3 text-white navbar-text">Toyota Supra</a>
+
+            <ul class="navbar-nav flex-row auto">
+                <li class="nav-item me-5">
+                    <a href="#gallery" class="nav-link text-white fw-semibold navbar-text">Generations</a>
+                </li>
+                <li class="nav-item me-5">
+                    <a href="#specialEdition" class="nav-link text-white fw-semibold navbar-text">Special Editions</a>
+                </li>
+                <li class="nav-item me-5">
+                    <a href="#about" class="nav-link text-white fw-semibold navbar-text">About</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <div class="container-fluid p-0 m-0">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-12">
                 <div class="card w-100 border-0">
                     <img src="assets/supra logo.jpg" alt="supra logo" class="w-100"
                         style="height: 400px; object-fit: cover;">
+                    <div class="card-body" id="about">
+                        <div class="card-title display-4 text-center fw-bold mb-3">
+                            About the Toyota Supra
+                        </div>
+                        <p class="card-text text-center">
+                        The Toyota Supra is one of Japan's most iconic sports cars, known for its powerful engines,
+                        sleek design, and strong motorsport heritage. From its early roots in the late 1970s to the
+                        legendary 2JZ-powered A80 and the modern GR Supra, it has remained a symbol of performance,
+                        innovation, and car culture worldwide.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-4 mb-2">
+        <div class="row mt-5 mb-2">
             <div class="col-12">
                 <div class="display-4 text-center fw-bold">Supra Generations</div>
             </div>
@@ -51,6 +87,12 @@
         </div>
         <div class="row" id="specialEdition"></div>
     </div>
+
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
+        <p class="text-center text-muted">Developed by: Edcel Esquivel</p>
+        <p class="text-center text-muted">Submitted to: Christopher Jay De Claro</p>
+    </footer>
 
     <script>
         const supraDetails = {
